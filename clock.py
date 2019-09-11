@@ -31,15 +31,21 @@ month = str(datelist[1])
 day = str(datelist[2])
 
 # Find out if today has a Candle Lighting time
-cmd = '../hebcal/hebcal -cTO ' + month + ' ' + day + ' ' + year + ' > s.txt'
-#print(cmd)
-os.system(cmd)
+def findCandle():
+    cmd = '../hebcal/hebcal -cTO ' + month + ' ' + day + ' ' + year + ' > s.txt'
+    #print(cmd)
+    os.system(cmd)
 
+findCandle()
 fhandle = open('s.txt')
 t = []
 for line in fhandle:
     line = line.rstrip()
-    if line.startswith('Candle'): print(line)
+    if line.startswith('Candle'):
+        print(line)
+    else:
+        day = str(int(day)+1)
+        findCandle()
     #t.append(line)
     #print(t)
 fhandle.close()
