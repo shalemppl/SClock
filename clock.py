@@ -8,6 +8,13 @@ import os
 #print(datetime.datetime.today().weekday())
 
 i = datetime.datetime.today().weekday()
+print(i)
+datelist = str(date.today())
+print(datelist)
+datelist = datelist.split('-')
+for a in range(3):
+    datelist[a]=int(datelist[a])
+print(datelist)
 j = 0
 
 if i == 0: j = 4
