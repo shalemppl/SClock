@@ -56,7 +56,10 @@ def findCandle():
         #print('Day is now ', day)
         #     fhandle.close()
 
-print(findCandle())
+candleTime = findCandle()
+print(candleTime)
+candleTime = candleTime.split()
+print(candleTime[2])
 
 # fhandle = open('s.txt')
 # for line in fhandle:
