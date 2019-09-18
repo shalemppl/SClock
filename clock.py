@@ -68,6 +68,7 @@ WIDTH = 320
 root = tk.Tk()
 
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
+canvas.pack()
 
 bgImage = tk.PhotoImage(file='bgImage.gif')
 bgLabel = tk.Label(root, image=bgImage)
