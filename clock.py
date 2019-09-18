@@ -59,6 +59,9 @@ print(candleTime[2])
 
 import tkinter as tk
 
+def testfx():
+    print('Click')
+
 HEIGHT = 240
 WIDTH = 320
 
@@ -66,7 +69,21 @@ root = tk.Tk()
 
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
 
-button = tk.Button(root, text='Test Button')
-button.pack()
+bgImage = tk.PhotoImage(file='bgImage.gif')
+bgLabel = tk.Label(root, image=bgImage)
+bgLabel.place(relwidth=1, relheight=1)
+
+# frame = tk.Frame(root)
+# frame.place(relx=0.5, rely=0.1, relwidth=0.5, relheight=0.1, anchor='w')
+
+# button = tk.Button(root, text=candleTime[2], command=testfx)
+# button.place(relx=0.1, relheight=0.3, relwidth=0.3)
+
+# candleTimeFrame = tk.Frame(root)
+# candleTimeFrame.place(relx=0.5, rely=0.25, relwidth=0.25, relheight=0.1, anchor='n')
+
+candleTimeLabel = tk.Label(root)
+candleTimeLabel.place(relx=0.1, rely=0.1, relwidth=0.3, relheight=0.1)
+candleTimeLabel['text'] = candleTime[2] + ' PM'
 
 root.mainloop()
