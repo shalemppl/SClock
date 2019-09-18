@@ -25,7 +25,6 @@ import os
 
 # Find out if today has a Candle Lighting time
 def findCandle():
-    #print('start findCandle()')
 
     # Find today's date and create a list of the day, month and year converted to integers
     datelist = str(date.today())
@@ -38,10 +37,9 @@ def findCandle():
     month = str(datelist[1])
     day = str(datelist[2])
 
+    # Find the next day that has a candle lighting time
     Found = False
     while Found == False:
-        # print('Start While()')
-        # print(day)
         cmd = '../hebcal/hebcal -cTO ' + month + ' ' + day + ' ' + year + ' > s.txt'
         os.system(cmd)
         fhandle = open('s.txt')
@@ -50,40 +48,25 @@ def findCandle():
                 Found = True
                 fhandle.close()
                 return line
-        #     else:
-        #         print('Found is ', Found, ' so do While() again')
         day = str(int(day)+1)
-        #print('Day is now ', day)
-        #     fhandle.close()
 
 candleTime = findCandle()
 print(candleTime)
 candleTime = candleTime.split()
 print(candleTime[2])
 
-# fhandle = open('s.txt')
-# for line in fhandle:
-#     #line = line.rstrip()
-#     if line.startswith('Candle'): Found = True
-#     #     fhandle.close()
-#     #     print(line)
-#     # else:
-#     #     fhandle.close()
-#     #     day = str(int(day)+1)
-#     #     findCandle()
-#     #     fhandle = open('s.txt')
-#     #t.append(line)
-#     #print(t)
-# fhandle.close()
-#print('Found is ', Found)
-#print('rline is: ', rline)
-# if Found == False:
-#     day = str(int(day)+1)
-#     findCandle()
-# else:
-#     print(rline)
+# GUI
 
+import tkinter as tk
 
-#print('Output: ', os.system(cmd))
-#Shabbat = date.today() + j
-#print('Shabbat will start on Friday, ', Shabbat)
+HEIGHT = 240
+WIDTH = 320
+
+root = tk.Tk()
+
+canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
+
+button = tk.Button(root, text='Test Button')
+button.pack()
+
+root.mainloop()
